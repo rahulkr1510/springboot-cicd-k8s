@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-cicd-k8s
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: springboot-cicd-k8s
+  template:
+    metadata:
+      labels:
+        app: springboot-cicd-k8s
+    spec:
+      containers:
+        - name: springboot-cicd-k8s
+          image: rahulkr1510/springboot-cicd-k8s:v1
+          ports:
+            - containerPort: 8080
